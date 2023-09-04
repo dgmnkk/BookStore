@@ -1,4 +1,7 @@
-﻿using System;
+﻿using data_access;
+using data_access.Interfaces;
+using data_access.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,30 @@ namespace BookStore
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IUnitOfWork uow = new UnitOfWork();
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            User user = new User();
+            user = uow.UserRepo.Get(x => x.Login == loginBox.Text && x.Password == passwordBox.Text).FirstOrDefault();
+            if(user != null)
+            {
+               
+               BookStoreInfo bookStoreInfo = new BookStoreInfo();
+               bookStoreInfo.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Wrong login or password! Try again");
+                loginBox.Text = string.Empty;
+                passwordBox.Text = string.Empty;
+            }
         }
     }
 }

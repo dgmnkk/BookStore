@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="550" Width="800">
+    <Grid  Background="#ffdadada">
+        <Border MinWidth="400" Margin="15" CornerRadius="50" Background="White">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel Margin="40">
+                <TextBlock Text="Authenfication" FontSize="30" FontWeight="Bold" Margin="20" Foreground="#FF320A6F"/>
+                <Label Margin ="0, 50, 0, 0" FontSize="20">Login</Label>
+                <TextBox x:Name="loginBox"></TextBox>
+                <Label FontSize="20">Password</Label>
+                <TextBox  x:Name="passwordBox"></TextBox>
+                <Button Height="40" Background="#FF320A6F" Foreground="White" FontSize="25" Margin="20, 50" Click="Button_Click">Sign in</Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

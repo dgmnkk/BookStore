@@ -1,0 +1,47 @@
+﻿<Window x:Class="BookStore.BookStoreInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookStore"
+        mc:Ignorable="d"
+        Title="BookStoreInfo" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <DockPanel  Grid.Row="0">
+            <Menu>
+                <MenuItem Header="TOP books">
+                    <MenuItem Header="The most popular">
+                        <MenuItem Header="Of day" Click="TopDay_Click" />
+                        <MenuItem Header="Of week" Click="TopWeek_Click"/>
+                        <MenuItem Header="Of month" Click="TopMonth_Click" />
+                        <MenuItem Header="Of year" Click="TopYear_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="The most popular authors">
+                        <MenuItem Header="Of day" Click="TopDayAuthor_Click" />
+                        <MenuItem Header="Of week" Click="TopWeekAuthor_Click" />
+                        <MenuItem Header="Of month" Click="TopMonthAuthor_Click"/>
+                        <MenuItem Header="Of year" Click="TopYearAuthor_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="The most popular genres">
+                        <MenuItem Header="Of day" Click="TopDayGenre_Click"/>
+                        <MenuItem Header="Of week" Click="TopWeekGenre_Click"/>
+                        <MenuItem Header="Of month" Click="TopMonthGenre_Click"/>
+                        <MenuItem Header="Of year" Click="TopYearGenre_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="New">
+                    <MenuItem Header="Of day" Click="NewDay_Click" />
+                    <MenuItem Header="Of week" Click="NewWeek_Click"/>
+                    <MenuItem Header="Of month" Click="NewMonth_Click" />
+                    <MenuItem Header="Of year" Click="NewYear_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <DataGrid Grid.Row="2" x:Name="booksTable"></DataGrid>
+    </Grid>
+</Window>

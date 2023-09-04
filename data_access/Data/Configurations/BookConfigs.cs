@@ -17,6 +17,7 @@ namespace data_access.Data.Configurations
             builder.HasOne(x => x.Publisher).WithMany(x => x.Books).HasForeignKey(x => x.PublisherId);
             builder.HasOne(x => x.Genre).WithMany(x => x.Books).HasForeignKey(x => x.GenreId);
             builder.HasOne(x => x.PreviousBook).WithOne(x => x.NextBook).HasForeignKey<Book>(x => x.PreviousBookId).IsRequired(false);
+            builder.HasMany(x => x.Orders).WithMany(x => x.Books);
         }
     }
 }
